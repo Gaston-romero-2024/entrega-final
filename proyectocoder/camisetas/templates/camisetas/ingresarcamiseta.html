@@ -1,0 +1,33 @@
+{% extends 'inicio.html'%}
+{% block content %}
+<style>
+    h3{
+        text-align: center;
+
+    }
+    form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #0840fa;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+</style>
+
+<h3>"Ingrese una nueva camiseta"</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+    <input type="reset" value="Limpiar">
+</form>
+
+{% endblock %}

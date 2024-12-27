@@ -1,0 +1,25 @@
+{% extends 'inicio.html'%}
+
+{% block content %}
+{% if user.is_authenticated %}
+<a href="{% url 'ingresarcamiseta' %}">ingresar camiseta</a>
+{% else %}
+  <p>Por favor, inicia sesión para acceder a este enlace.</p>
+{% endif %}
+
+<a href="#">buscar camiseta</a>
+
+<h2>Camisetas de selecciones</h2>
+
+{% for lista in listas %}
+<ul>
+    <li>PAIS: {{lista.pais}}</li>
+    <li>FECHA: {{lista.fecha}}</li>
+    <li>TITULAR: {{lista.titular}}</li>
+    <li><img src="{{ lista.imagen.url }}" alt="{{lista.pais}}"></li>
+</ul>
+{% endfor %}
+
+
+
+{% endblock %}
